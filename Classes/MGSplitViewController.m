@@ -18,6 +18,9 @@
 #define MG_PANESPLITTER_CORNER_RADIUS	0.0		// corner-radius of split-inner corners for MGSplitViewDividerStylePaneSplitter style.
 #define MG_PANESPLITTER_SPLIT_WIDTH		25.0	// width of split-gutter for MGSplitViewDividerStylePaneSplitter style.
 
+#define MG_PANESPLITTER_NONE_WIDTH			0.0		// default width of split-gutter in UISplitViewController.
+#define MG_PANESPLITTER_NONE_CORNER_RADIUS  0.0		// default corner-radius of overlapping split-inner corners on
+
 #define MG_MIN_VIEW_WIDTH				200.0	// minimum width a view is allowed to become as a result of changing the splitPosition.
 
 #define MG_ANIMATION_CHANGE_SPLIT_ORIENTATION	@"ChangeSplitOrientation"	// Animation ID for internal use.
@@ -1085,7 +1088,11 @@
 		cornerRadius = MG_PANESPLITTER_CORNER_RADIUS;
 		_splitWidth = MG_PANESPLITTER_SPLIT_WIDTH;
 		self.allowsDraggingDivider = YES;
-	}
+	} else if (_dividerStyle == MGSplitViewDividerStyleNone) {
+        cornerRadius = MG_PANESPLITTER_NONE_CORNER_RADIUS;
+        _splitWidth  = MG_PANESPLITTER_NONE_WIDTH;
+        self.allowsDraggingDivider = NO;
+    }
 	
 	// Update divider and corners.
 	[_dividerView setNeedsDisplay];
