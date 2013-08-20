@@ -252,7 +252,7 @@
 	// Account for status bar, which always subtracts from the height (since it's always at the top of the screen).
 	height -= statusBarHeight;
     // Quickfix for tabbar width
-    width -= 64;
+    width -= 84;
 
 	return CGSizeMake(width, height);
 }
