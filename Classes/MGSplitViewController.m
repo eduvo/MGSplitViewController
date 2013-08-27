@@ -145,6 +145,9 @@
 	_dividerView.splitViewController = self;
 	_dividerView.backgroundColor = MG_DEFAULT_CORNER_COLOR;
 	_dividerStyle = MGSplitViewDividerStyleThin;
+
+    // Fix initial landscape mode for iOS 6+
+    self.view.autoresizesSubviews = NO;
 }
 
 
